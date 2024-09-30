@@ -1,13 +1,19 @@
 import InputGroup from "./InputGroup";
 
-function ProfessionalExperience({ onChange, profExperience }) {
-    return (
+function ProfessionalExperience({
+  onChange,
+  profExperience,
+  addProfExperience,
+}) {
+  return (
     <div className="professional-experience">
       <h2>Professional Experience</h2>
       {profExperience.map((exp) => {
         return (
           <div className="experience-form" id={"id-" + exp.id}>
-            <h3>{exp.jobTitle} at {exp.company}</h3>
+            <h3>
+              {exp.jobTitle} at {exp.company}
+            </h3>
             <form>
               <InputGroup
                 onChange={onChange}
@@ -85,6 +91,7 @@ function ProfessionalExperience({ onChange, profExperience }) {
           </div>
         );
       })}
+      <button onClick={addProfExperience}>Add Experience</button>
     </div>
   );
 }

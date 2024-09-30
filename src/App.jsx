@@ -3,7 +3,7 @@ import "./App.css";
 import PersonalDetails from "./components/PersonalDetails";
 import ShortProfile from "./components/ShortProfile";
 import ProfessionalExperience from "./components/ProfessionalExperience";
-import sampleData from "./components/sampleData";
+import sampleData from "./sampleData";
 
 function App() {
   const [personalDetails, setPersonalDetails] = useState(
@@ -28,13 +28,33 @@ function App() {
     const { key } = e.target.dataset;
     const value = e.target.value;
     const id = e.target.closest(".experience-form").id.slice(3);
-    const index = profExperience.findIndex((exp) => exp.id === id)
-    
-    const newProfExperience = [...profExperience]
-    newProfExperience[index] = {...newProfExperience[index], [key]: value}
+    const index = profExperience.findIndex((exp) => exp.id === id);
 
-    setProfExperience(newProfExperience)
-    }
+    const newProfExperience = [...profExperience];
+    newProfExperience[index] = { ...newProfExperience[index], [key]: value };
+
+    setProfExperience(newProfExperience);
+  }
+
+  function addProfExperience(experience) {
+    const exp = [...profExperience];
+    exp.push(experience);
+    setProfExperience(exp);
+  }
+
+  function addProfExperienceForm() {
+    addProfExperience({
+      id: crypto.randomUUID(),
+      jobTitle: "",
+      company: "",
+      sector: "",
+      location: "",
+      coreTasks: "",
+      impact: "",
+      startDate: "",
+      endDate: "",
+    });
+  }
 
   return (
     <>
@@ -58,6 +78,7 @@ function App() {
       <ProfessionalExperience
         onChange={handleProfExperienceChange}
         profExperience={profExperience}
+        addProfExperience={addProfExperienceForm}
       />
     </>
   );
