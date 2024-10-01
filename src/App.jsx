@@ -3,6 +3,7 @@ import "./App.css";
 import PersonalDetails from "./components/PersonalDetails";
 import ShortProfile from "./components/ShortProfile";
 import ProfessionalExperience from "./components/ProfessionalExperience";
+import Education from "./components/Education";
 import sampleData from "./sampleData";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
   const [profExperience, setProfExperience] = useState(
     sampleData.professionalExperience
   );
-
+  const [education, setEducation] = useState(sampleData.education);
   function handlePersonalDetailsChange(e) {
     const { key } = e.target.dataset;
     setPersonalDetails({ ...personalDetails, [key]: e.target.value });
@@ -56,6 +57,34 @@ function App() {
     });
   }
 
+  function handleEducationChange(e) {
+    const { key } = e.target.dataset;
+    const value = e.target.value;
+    const id = e.target.closest(".education-form").id.slice(3);
+    const index = education.findIndex((exp) => exp.id === id);
+
+    const newEducation = [...education];
+    newEducation[index] = { ...newEducation[index], [key]: value };
+
+    setEducation(newEducation);
+  }
+
+  function addEducation(education) {
+    const exp = [...education];
+    exp.push(education);
+    setEducation(education);
+  }
+
+  function addEducationForm() {
+    addEducation({
+      id: crypto.randomUUID(),
+      certificate: "",
+      school: "",
+      startDate: "",
+      endDate: "",
+    });
+  }
+
   return (
     <>
       <PersonalDetails
@@ -79,6 +108,11 @@ function App() {
         onChange={handleProfExperienceChange}
         profExperience={profExperience}
         addProfExperience={addProfExperienceForm}
+      />
+      <Education
+        onChange={handleEducationChange}
+        education={education}
+        addEducation={addEducationForm}
       />
     </>
   );

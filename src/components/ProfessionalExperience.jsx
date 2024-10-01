@@ -10,7 +10,7 @@ function ProfessionalExperience({
       <h2>Professional Experience</h2>
       {profExperience.map((exp) => {
         return (
-          <div className="experience-form" id={"id-" + exp.id}>
+          <div key={exp.id} className="experience-form" id={"id-" + exp.id}>
             <h3>
               {exp.jobTitle} at {exp.company}
             </h3>

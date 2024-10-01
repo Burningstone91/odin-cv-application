@@ -40,6 +40,22 @@ const sampleData = {
       endDate: "present",
     },
   ],
+  education: [
+    {
+      id: crypto.randomUUID(),
+      certificate: "CAS Data Science",
+      school: "ZHAW Zurich",
+      startDate: "11/2021",
+      endDate: "12/2022",
+    },
+    {
+      id: crypto.randomUUID(),
+      certificate: "Bachelor of Computer Science",
+      school: "MIT",
+      startDate: "10/2018",
+      endDate: "11/2021",
+    },
+  ],
 };
 
 export default sampleData;
