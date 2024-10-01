@@ -17,7 +17,7 @@ function Education({
                 <form>
                   <InputGroup
                     onChange={onChange}
-                    value={edu.jobTitle}
+                    value={edu.certificate}
                     name="certificate"
                     label="Certificate"
                     type="text"
