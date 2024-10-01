@@ -4,6 +4,7 @@ function Resume({ personalDetails, shortProfile, profExperience, education }) {
   return (
     <>
       <h1>Resume</h1>
+
       <div className="personal-details-info">
         <p>{personalDetails.address}</p>
         <p>{personalDetails.phone}</p>
@@ -22,6 +23,7 @@ function Resume({ personalDetails, shortProfile, profExperience, education }) {
           return <p>{short}</p>;
         })}
       </div>
+
       <div className="professional-experience-info">
         <h2>Professional Experience</h2>
         {profExperience.map((exp) => {
@@ -45,6 +47,21 @@ function Resume({ personalDetails, shortProfile, profExperience, education }) {
               <div className="job-impact">
                 <p>Impact</p>
                 <p>{exp.impact}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="education-info">
+        <h2>Education</h2>
+        {education.map((edu) => {
+          return (
+            <div key={edu.id} className="education-info">
+              <p className="duration">{edu.startDate + " - " + edu.endDate}</p>
+              <div className="education-details">
+                <p className="certificate">{edu.certificate}</p>
+                <p>{edu.school}</p>
               </div>
             </div>
           );
