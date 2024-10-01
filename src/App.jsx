@@ -1,9 +1,14 @@
 import { useState } from "react";
 import "./App.css";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
 import PersonalDetails from "./components/PersonalDetails";
 import ShortProfile from "./components/ShortProfile";
 import ProfessionalExperience from "./components/ProfessionalExperience";
 import Education from "./components/Education";
+import Resume from "./components/Resume";
 import sampleData from "./sampleData";
 
 function App() {
@@ -86,36 +91,47 @@ function App() {
   }
 
   return (
-    <>
-      <PersonalDetails
-        onChange={handlePersonalDetailsChange}
-        fullName={personalDetails.fullName}
-        address={personalDetails.address}
-        phone={personalDetails.phone}
-        email={personalDetails.email}
-        linkedin={personalDetails.linkedin}
-        github={personalDetails.github}
-        birthday={personalDetails.birthday}
-      />
-      <ShortProfile
-        onChange={handleShortProfileChange}
-        short1={shortProfile.short1}
-        short2={shortProfile.short2}
-        short3={shortProfile.short3}
-        short4={shortProfile.short4}
-      />
-      <ProfessionalExperience
-        onChange={handleProfExperienceChange}
-        profExperience={profExperience}
-        addProfExperience={addProfExperienceForm}
-      />
-      <Education
-        onChange={handleEducationChange}
-        education={education}
-        addEducation={addEducationForm}
-      />
-    </>
+      <div className="app">
+        <div className="input-forms">
+          <PersonalDetails
+            onChange={handlePersonalDetailsChange}
+            fullName={personalDetails.fullName}
+            address={personalDetails.address}
+            phone={personalDetails.phone}
+            email={personalDetails.email}
+            linkedin={personalDetails.linkedin}
+            github={personalDetails.github}
+            birthday={personalDetails.birthday}
+          />
+          <ShortProfile
+            onChange={handleShortProfileChange}
+            short1={shortProfile.short1}
+            short2={shortProfile.short2}
+            short3={shortProfile.short3}
+            short4={shortProfile.short4}
+          />
+          <ProfessionalExperience
+            onChange={handleProfExperienceChange}
+            profExperience={profExperience}
+            addProfExperience={addProfExperienceForm}
+          />
+          <Education
+            onChange={handleEducationChange}
+            education={education}
+            addEducation={addEducationForm}
+          />
+        </div>
+        <div className="resume">
+          <Resume
+            personalDetails={personalDetails}
+            shortProfile={shortProfile}
+            profExperience={profExperience}
+            education={education}
+          />
+        </div>
+      </div>
   );
 }
 
 export default App;
+library.add(fab, fas, far);

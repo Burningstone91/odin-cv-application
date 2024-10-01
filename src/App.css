@@ -29,3 +29,8 @@ textarea {
   min-height: 36px;
   height: 60px;
 }
+
+.app {
+  display: flex;
+  flex-direction: row;
+}
