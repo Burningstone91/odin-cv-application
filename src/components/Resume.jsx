@@ -15,7 +15,6 @@ function Resume({ personalDetails, shortProfile, profExperience, education }) {
         <a href={personalDetails.github}>
           <FontAwesomeIcon icon="fa-brands fa-github" size="2x" />
         </a>
-        <p>{personalDetails.github}</p>
       </div>
       <div className="short-profile-info">
         <h2>Short Profile at a Glance</h2>
@@ -30,9 +29,11 @@ function Resume({ personalDetails, shortProfile, profExperience, education }) {
           return (
             <div key={exp.id} className="experience-info">
               <div className="job-info">
-                <p>{exp.startDate + " - " + exp.endDate}</p>
-                <div className="job-info">
-                  <p>{exp.jobTitle}</p>
+                <p className="duration">
+                  {exp.startDate + " - " + exp.endDate}
+                </p>
+                <div className="job-info-details">
+                  <p className="job-title">{exp.jobTitle}</p>
                   <p>
                     {exp.company + " / " + exp.sector + " / " + exp.location}
                   </p>
@@ -40,20 +41,20 @@ function Resume({ personalDetails, shortProfile, profExperience, education }) {
               </div>
 
               <div className="job-core-tasks">
-                <p>Core Tasks</p>
-                <p>{exp.coreTasks}</p>
+                <p className="core-tasks-title">Core Tasks</p>
+                <p className="core-tasks-content">{exp.coreTasks}</p>
               </div>
 
               <div className="job-impact">
-                <p>Impact</p>
-                <p>{exp.impact}</p>
+                <p className="impact-title">Impact</p>
+                <p className="impact-content">{exp.impact}</p>
               </div>
             </div>
           );
         })}
       </div>
 
-      <div className="education-info">
+      <div className="education-info-section">
         <h2>Education</h2>
         {education.map((edu) => {
           return (
