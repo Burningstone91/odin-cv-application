@@ -3,19 +3,32 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function Resume({ personalDetails, shortProfile, profExperience, education }) {
   return (
     <>
-      <h1>Resume</h1>
-
       <div className="personal-details-info">
-        <p>{personalDetails.address}</p>
-        <p>{personalDetails.phone}</p>
-        <p>{personalDetails.email}</p>
-        <a href={personalDetails.linkedin}>
-          <FontAwesomeIcon icon="fa-brands fa-linkedin" size="2x" />
-        </a>
-        <a href={personalDetails.github}>
-          <FontAwesomeIcon icon="fa-brands fa-github" size="2x" />
-        </a>
+        <p className="full-name">{personalDetails.fullName}</p>
+        <hr></hr>
+        <div className="contact-details">
+          <p className="contact-details-title">Contact Details</p>
+          <div className="contact-details-content">
+            <p>{personalDetails.address}</p>
+            <p>{personalDetails.phone}</p>
+            <a href={"mailto:" + personalDetails.email}>
+              {personalDetails.email}
+            </a>
+            <br></br>
+            <a href={personalDetails.linkedin}>
+              <FontAwesomeIcon icon="fa-brands fa-linkedin" size="xl" />
+            </a>
+            <a href={personalDetails.github}>
+              <FontAwesomeIcon icon="fa-brands fa-github" size="xl" />
+            </a>
+          </div>
+        </div>
+        <div className="birthday-details">
+          <p className="birthday-title">Date of Birth</p>
+          <p className="birthday-content">{personalDetails.birthday}</p>
+        </div>
       </div>
+
       <div className="short-profile-info">
         <div className="section-header">
           <FontAwesomeIcon icon="fa-solid fa-head-side-virus" size="xl" />
