@@ -17,14 +17,22 @@ function Resume({ personalDetails, shortProfile, profExperience, education }) {
         </a>
       </div>
       <div className="short-profile-info">
-        <h2>Short Profile at a Glance</h2>
-        {Object.values(shortProfile).map((short) => {
-          return <p>{short}</p>;
-        })}
+        <div className="section-header">
+          <FontAwesomeIcon icon="fa-solid fa-head-side-virus" size="xl" />
+          <h2>Short Profile at a Glance</h2>
+        </div>
+        {Object.values(shortProfile)
+          .filter((short) => short !== "")
+          .map((short) => {
+            return <p className="short">{short}</p>;
+          })}
       </div>
 
       <div className="professional-experience-info">
-        <h2>Professional Experience</h2>
+        <div className="section-header">
+          <FontAwesomeIcon icon="fa-solid fa-briefcase" size="xl" />
+          <h2>Professional Experience</h2>
+        </div>
         {profExperience.map((exp) => {
           return (
             <div key={exp.id} className="experience-info">
@@ -55,7 +63,10 @@ function Resume({ personalDetails, shortProfile, profExperience, education }) {
       </div>
 
       <div className="education-info-section">
-        <h2>Education</h2>
+        <div className="section-header">
+          <FontAwesomeIcon icon="fa-solid fa-book-open-reader" size="xl" />
+          <h2>Education</h2>
+        </div>
         {education.map((edu) => {
           return (
             <div key={edu.id} className="education-info">

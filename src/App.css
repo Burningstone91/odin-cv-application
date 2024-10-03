@@ -45,7 +45,11 @@ textarea {
   box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
 }
 
-.resume h2 {
+.section-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
   box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
   color: white;
   padding: 6px;
@@ -53,8 +57,9 @@ textarea {
   background-color: #183462;
 }
 
-.short-profile-info > p {
+.short {
   display: list-item;
+  margin-left: 24px;
 }
 
 .education-info,
